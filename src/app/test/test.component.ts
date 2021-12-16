@@ -7,12 +7,12 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  userName;
-  formdata;
+  userName !:string;
+  formdata !:FormGroup;
   ngOnInit() {
     this.formdata = new FormGroup({
       userName: new FormControl( "MyPage")
     })
   }
-  onClickSubmit(data) {this.userName = data.userName;}
+  onClickSubmit() {this.userName = this.formdata.get("userName")?.value();}
 }
